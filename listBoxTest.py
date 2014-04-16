@@ -8,6 +8,7 @@ class SampleApp(tk.Tk):
 	self.initUI()
 	self.buttomPanel()
 	self.leftPanel()
+	self.rightPanel()
 	self.centerWindow()
     def buttomPanel(self):
         group = tk.LabelFrame(text="Firewall Status")
@@ -25,6 +26,8 @@ class SampleApp(tk.Tk):
         #lb.grid(row=0, column=0, rowspan=1, columnspan=16, sticky=tk.N+tk.S)
 	#retValue = self.OnDouble(self)
 	#print retValue
+    def rightPanel(self):
+	
     def initUI(self):
         self.title("Firewall Configuration")
         menubar = Menu(self)
@@ -81,6 +84,9 @@ class SampleApp(tk.Tk):
 
     def initInterfaceone(self):
 	tkMessageBox.showinfo("90","90")	
+	box = Frame(self)
+	box.pack()
+
 if __name__=="__main__":
     app = SampleApp()
     app.mainloop()
