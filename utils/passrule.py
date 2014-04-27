@@ -1,3 +1,5 @@
+import pf
+
 class PassRule(pf.PFRule):
 
     def __init__(self, **kw):

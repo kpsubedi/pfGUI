@@ -3,6 +3,8 @@ import tkMessageBox
 from Tkinter import Tk, Frame, Menu
 from Tkinter import *
 import pf
+import utils.passrule
+
 
 class SampleApp(tk.Tk):
     def __init__(self):
