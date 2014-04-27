@@ -25,13 +25,19 @@ class SampleApp(tk.Tk):
         lb.insert("2","Create Tables")
         lb.insert("3","Port Forwarding")
 	lb.insert("end","Custom Rules")
+	lb.selection_set(first=0)
         lb.bind("<Double-Button-1>",self.OnDouble)
         lb.pack(side="left", fill="y",padx=5, pady=5)
         #lb.grid(row=0, column=0, rowspan=1, columnspan=16, sticky=tk.N+tk.S)
 	#retValue = self.OnDouble(self)
 	#print retValue
-   # def rightPanel(self):
-	
+    #def rightPanel(self):
+	#entry = tk.Entry(self)
+	#entry.pack(side='right')
+	#labelFrame = tk.LabelFrame()
+	#labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+        #test = tk.Label(labelFrame, text="Ths")
+	#test.pack(anchor=W)	
     def initUI(self):
         self.title("Firewall Configuration")
         menubar = Menu(self)
@@ -75,15 +81,35 @@ class SampleApp(tk.Tk):
         value = widget.get(selection[0])
 	if selection[0] == "0":
 	    tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
-	    self.initInterfaceone()
+	    labelFrame = LabelFrame(self,text="Network Address Translation")
+	    labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+            test = tk.Label(labelFrame, text="Ths")
+	    test.pack(anchor=W)	
+	    #labelFrame0 = LabelFrame(self, text="Zero")
+	    #labelFrame0.pack(side=RIGHT)
+	    #self.initInterfaceone()
         elif selection[0] == "1":
 	    tkMessageBox.showinfo("selection:"+selection[0],"One:"+selection[0])
+	    labelFrame1 = LabelFrame(self,text="One Configuration")
+	    labelFrame1.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+            test1 = tk.Label(labelFrame1, text="One config")
+	    test1.pack(anchor=W)	
 	elif selection[0] == "2":
 	    tkMessageBox.showinfo("Selection:"+selection[0],"Two:"+selection[0])
+	    labelFrame2 = LabelFrame(self,text="Two Configuration")
+	    labelFrame2.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+            test2 = tk.Label(labelFrame2, text="Two config")
+	    test2.pack(anchor=W)	
 	elif selection[0] == "3":
 	    tkMessageBox.showinfo("Selection:"+selection[0],"Three:"+selection[0])	
-        print "Selection:", selection, ": '%s'" %value
-        tkMessageBox.showinfo("Test","Test")
+	    labelFrame2 = LabelFrame(self,text="Three Configuration")
+	    labelFrame2.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+            test2 = tk.Label(labelFrame2, text="Three config")
+	    test2.pack(anchor=W)	
+	    labelFrame3 = LabelFrame(self, text="Three")
+	    labelFrame3.pack(side=RIGHT)
+        #print "Selection:", selection, ": '%s'" %value
+        #tkMessageBox.showinfo("Test","Test")
 	return value
 
     def initInterfaceone(self):
