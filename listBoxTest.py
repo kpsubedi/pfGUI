@@ -21,7 +21,7 @@ class SampleApp(tk.Tk):
 	bp.pack(anchor=W)
     def leftPanel(self):
         lb = tk.Listbox(self)
-        lb.insert("1","one")
+        lb.insert("1","Network Address Translation")
         lb.insert("2","two")
         lb.insert("3","three")
 	lb.insert("end","Custom Rules")
