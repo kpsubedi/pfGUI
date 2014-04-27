@@ -8,7 +8,7 @@ class SampleApp(tk.Tk):
 	self.initUI()
 	self.buttomPanel()
 	self.leftPanel()
-	self.rightPanel()
+	#self.rightPanel()
 	self.centerWindow()
     def buttomPanel(self):
         group = tk.LabelFrame(text="Firewall Status")
@@ -26,7 +26,7 @@ class SampleApp(tk.Tk):
         #lb.grid(row=0, column=0, rowspan=1, columnspan=16, sticky=tk.N+tk.S)
 	#retValue = self.OnDouble(self)
 	#print retValue
-    def rightPanel(self):
+   # def rightPanel(self):
 	
     def initUI(self):
         self.title("Firewall Configuration")
@@ -70,7 +70,7 @@ class SampleApp(tk.Tk):
         selection = widget.curselection()
         value = widget.get(selection[0])
 	if selection[0] == "0":
-	    #tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
+	    tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
 	    self.initInterfaceone()
         elif selection[0] == "1":
 	    tkMessageBox.showinfo("selection:"+selection[0],"One:"+selection[0])
@@ -79,8 +79,8 @@ class SampleApp(tk.Tk):
 	elif selection[0] == "3":
 	    tkMessageBox.showinfo("Selection:"+selection[0],"Three:"+selection[0])	
         print "Selection:", selection, ": '%s'" %value
-        #tkMessageBox.showinfo("Test","Test")
-	#return value
+        tkMessageBox.showinfo("Test","Test")
+	return value
 
     def initInterfaceone(self):
 	tkMessageBox.showinfo("90","90")	

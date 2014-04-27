@@ -44,15 +44,15 @@ class MainGUI(Frame):
         helpMenu.add_command(label="About", command=self.onAbout)
         menubar.add_cascade(label="Help", menu=helpMenu)
 
-        #optionList = Listbox(self.master,name='optionList')
-        #optionList.grid(sticky=tk.N+tk.S)
-        #optionList.pack(side=LEFT, fill=Y)
-        #optionList.insert("end","Firewall Status")
-        #optionList.insert("end","Port Forwarding")
-        #optionList.insert("end","Custom Rules")
-        #optionList.config(selectmode=EXTENDED)
-        #optionList.bind("<Double-Button-1>>", self.OnDouble)
-        #optionList.pack(side=LEFT, fill=Y)
+        optionList = Listbox(self.master,name='optionList')
+        optionList.grid(sticky=tk.N+tk.S)
+        optionList.pack(side=LEFT, fill=Y)
+        optionList.insert("end","Firewall Status")
+        optionList.insert("end","Port Forwarding")
+        optionList.insert("end","Custom Rules")
+        optionList.config(selectmode=EXTENDED)
+        optionList.bind("<Double-Button-1>>", self.OnDouble)
+        optionList.pack(side=LEFT, fill=Y)
     
     def OnDouble(self, event):
         widget = event.widget
