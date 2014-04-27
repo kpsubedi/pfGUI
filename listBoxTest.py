@@ -101,6 +101,7 @@ class SampleApp(tk.Tk):
             test2 = tk.Label(labelFrame2, text="Two config")
 	    test2.pack(anchor=W)	
 	elif selection[0] == "3":
+	    #drawRightBox(self)
 	    tkMessageBox.showinfo("Selection:"+selection[0],"Three:"+selection[0])	
 	    labelFrame2 = LabelFrame(self,text="Three Configuration")
 	    labelFrame2.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
@@ -111,7 +112,8 @@ class SampleApp(tk.Tk):
         #print "Selection:", selection, ": '%s'" %value
         #tkMessageBox.showinfo("Test","Test")
 	return value
-
+    def drawRightBox(self):
+        tkMessageBox.showinfo("Hi","How")
     def initInterfaceone(self):
 	tkMessageBox.showinfo("90","90")	
 	box = Frame(self)
