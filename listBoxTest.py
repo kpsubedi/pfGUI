@@ -17,7 +17,7 @@ class SampleApp(tk.Tk):
     def buttomPanel(self):
         group = tk.LabelFrame(text="Firewall Status")
 	group.pack(side=BOTTOM,fill="x",padx=5, pady=5)
-	bp = tk.Label(group,text="The firewall is enabled.",fg="green")
+	bp = tk.Label(group,text="The firewall is disabled.",fg="red")
 	bp.pack(anchor=W)
     def leftPanel(self):
         lb = tk.Listbox(self,width=25)
@@ -43,10 +43,10 @@ class SampleApp(tk.Tk):
         fileMenu.add_command(label="Exit",command=self.onExit)
         menubar.add_cascade(label="File", menu=fileMenu)
 	optionsMenu = Menu(menubar)
-	optionsMenu.add_command(label="Start Configuration Wizard")
+	optionsMenu.add_command(label="Start Configuration Wizard", state=DISABLED)
 	optionsMenu.add_separator()
-	optionsMenu.add_command(label="Enable Firewall", command=self.onEnable, state=DISABLED)
-	optionsMenu.add_command(label="Disable Firewall", command=self.onDisable)
+	optionsMenu.add_command(label="Enable Firewall", command=self.onEnable)
+	optionsMenu.add_command(label="Disable Firewall", command=self.onDisable, state=DISABLED)
 	menubar.add_cascade(label="Options", menu=optionsMenu)
 
 	helpMenu = Menu(menubar)
