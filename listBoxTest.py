@@ -78,7 +78,7 @@ class SampleApp(tk.Tk):
 
     def OnDouble(self, event):
 	#isRender = False
-	#labelFrame = LabelFrame(self,text="Network Address Translation")
+	labelFrame = LabelFrame(self,text="Network Address Translation")
         widget = event.widget
         selection = widget.curselection()
         value = widget.get(selection[0])
@@ -86,7 +86,7 @@ class SampleApp(tk.Tk):
 	    #isRender = False
 	    if not self.isRender:
 	        tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
-	        labelFrame = LabelFrame(self,text="Network Address Translation")
+	        #labelFrame = LabelFrame(self,text="Network Address Translation")
 	        labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
                 test = tk.Label(labelFrame, text="Ths")
 	        test.pack(anchor=W)
