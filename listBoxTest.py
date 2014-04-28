@@ -11,6 +11,9 @@ class SampleApp(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
 	self.isRender = 0
 	self.labelFrame = tk.LabelFrame(text="Network Address Translation")
+	self.labelFrame1 = tk.LabelFrame(text="Network Address Translation")
+	self.labelFrame2 = tk.LabelFrame(text="Network Address Translation")
+	self.labelFrame3 = tk.LabelFrame(text="Network Address Translation")
 	self.initUI()
 	self.buttomPanel()
 	self.leftPanel()
@@ -27,7 +30,7 @@ class SampleApp(tk.Tk):
         lb.insert("2","Create Tables")
         lb.insert("3","Port Forwarding")
 	lb.insert("end","Custom Rules")
-	lb.selection_set(first=0)
+	#lb.selection_set(first=0)
         #lb.bind("<Double-Button-1>",self.OnDouble)
         lb.bind("<<ListboxSelect>>",self.OnSelect)
         lb.pack(side="left", fill="y",padx=5, pady=5)
@@ -79,41 +82,44 @@ class SampleApp(tk.Tk):
         self.geometry('%dx%d+%d+%d' %(w,h,x,y))
 
     def OnSelect(self, event):
-	#labelFrame = LabelFrame(self,text="Network Address Translation")
         widget = event.widget
         selection = widget.curselection()
         value = widget.get(selection[0])
 	if selection[0] == "0":
 	    #if self.isRender == 0:
 	    #tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
-	    labelFrame = LabelFrame(self,text="Network Address Translation")
+	    #labelFrame = LabelFrame(self,text="Network Address Translation")
 	    self.labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
-            test = tk.Label(labelFrame, text="Ths")
+            test = tk.Label(self.labelFrame, text="Ths")
 	    test.pack(anchor=W)
+	    widget.selection_set(first=0)	
 	    #self.isRender = 1    #self.initInterfaceone()
         elif selection[0] == "1":
 	    #if self.isRender == 1:
 	    #self.labelFrame.destroy()
 	    #tkMessageBox.showinfo("selection:"+selection[0],"One:"+selection[0])
-	    labelFrame1 = LabelFrame(self,text="One Configuration")
-	    labelFrame1.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
-            test1 = tk.Label(labelFrame1, text="One config")
+	    #self.labelFrame1 = LabelFrame(self,text="One Configuration")
+	    self.labelFrame1.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+            test1 = tk.Label(self.labelFrame1, text="One config")
 	    test1.pack(anchor=W)
-	    self.isRender = 2
+	    widget.selection_set(first=1)
+	    #self.isRender = 2
 	elif selection[0] == "2":
 	    #tkMessageBox.showinfo("Selection:"+selection[0],"Two:"+selection[0])
-	    labelFrame2 = LabelFrame(self,text="Two Configuration")
-	    labelFrame2.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
-            test2 = tk.Label(labelFrame2, text="Two config")
-	    test2.pack(anchor=W)	
+	    #labelFrame2 = LabelFrame(self,text="Two Configuration")
+	    self.labelFrame2.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+            test2 = tk.Label(self.labelFrame2, text="Two config")
+	    test2.pack(anchor=W)
+	    widget.selection_set(first=2)	
 	elif selection[0] == "3":
 	    #tkMessageBox.showinfo("Selection:"+selection[0],"Three:"+selection[0])	
-	    labelFrame2 = LabelFrame(self,text="Three Configuration")
-	    labelFrame2.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
-            test2 = tk.Label(labelFrame2, text="Three config")
+	    #labelFrame2 = LabelFrame(self,text="Three Configuration")
+	    self.labelFrame3.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+            test2 = tk.Label(self.labelFrame3, text="Three config")
 	    test2.pack(anchor=W)	
-	    labelFrame3 = LabelFrame(self, text="Three")
-	    labelFrame3.pack(side=RIGHT)
+	    widget.selection_set(first=3)	
+	    #labelFrame3 = LabelFrame(self, text="Three")
+	    #labelFrame3.pack(side=RIGHT)
         #print "Selection:", selection, ": '%s'" %value
         #tkMessageBox.showinfo("Test","Test")
 	#self.isRender = 10 
