@@ -9,6 +9,7 @@ import utils.passrule
 class SampleApp(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
+	self.isRender = False
 	self.initUI()
 	self.buttomPanel()
 	self.leftPanel()
@@ -76,19 +77,24 @@ class SampleApp(tk.Tk):
         self.geometry('%dx%d+%d+%d' %(w,h,x,y))
 
     def OnDouble(self, event):
+	#isRender = False
+	#labelFrame = LabelFrame(self,text="Network Address Translation")
         widget = event.widget
         selection = widget.curselection()
         value = widget.get(selection[0])
 	if selection[0] == "0":
-	    tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
-	    labelFrame = LabelFrame(self,text="Network Address Translation")
-	    labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
-            test = tk.Label(labelFrame, text="Ths")
-	    test.pack(anchor=W)	
-	    #labelFrame0 = LabelFrame(self, text="Zero")
+	    #isRender = False
+	    if not self.isRender:
+	        tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
+	        labelFrame = LabelFrame(self,text="Network Address Translation")
+	        labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+                test = tk.Label(labelFrame, text="Ths")
+	        test.pack(anchor=W)
+       	    #labelFrame0 = LabelFrame(self, text="Zero")
 	    #labelFrame0.pack(side=RIGHT)
 	    #self.initInterfaceone()
         elif selection[0] == "1":
+	    labelFrame.destroy()
 	    tkMessageBox.showinfo("selection:"+selection[0],"One:"+selection[0])
 	    labelFrame1 = LabelFrame(self,text="One Configuration")
 	    labelFrame1.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
@@ -111,6 +117,7 @@ class SampleApp(tk.Tk):
 	    labelFrame3.pack(side=RIGHT)
         #print "Selection:", selection, ": '%s'" %value
         #tkMessageBox.showinfo("Test","Test")
+	self.isRender = True
 	return value
     def drawRightBox(self):
         tkMessageBox.showinfo("Hi","How")
