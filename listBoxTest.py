@@ -7,9 +7,10 @@ import utils.passrule
 
 
 class SampleApp(tk.Tk):
-    def __init__(self):
-        tk.Tk.__init__(self)
-	self.isRender = False
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
+	self.isRender = 0
+	self.labelFrame = tk.LabelFrame(text="Network Address Translation")
 	self.initUI()
 	self.buttomPanel()
 	self.leftPanel()
@@ -27,7 +28,8 @@ class SampleApp(tk.Tk):
         lb.insert("3","Port Forwarding")
 	lb.insert("end","Custom Rules")
 	lb.selection_set(first=0)
-        lb.bind("<Double-Button-1>",self.OnDouble)
+        #lb.bind("<Double-Button-1>",self.OnDouble)
+        lb.bind("<<ListboxSelect>>",self.OnSelect)
         lb.pack(side="left", fill="y",padx=5, pady=5)
         #lb.grid(row=0, column=0, rowspan=1, columnspan=16, sticky=tk.N+tk.S)
 	#retValue = self.OnDouble(self)
@@ -76,39 +78,36 @@ class SampleApp(tk.Tk):
         y = (sh - h) / 2
         self.geometry('%dx%d+%d+%d' %(w,h,x,y))
 
-    def OnDouble(self, event):
-	#isRender = False
-	labelFrame = LabelFrame(self,text="Network Address Translation")
+    def OnSelect(self, event):
+	#labelFrame = LabelFrame(self,text="Network Address Translation")
         widget = event.widget
         selection = widget.curselection()
         value = widget.get(selection[0])
 	if selection[0] == "0":
-	    #isRender = False
-	    if not self.isRender:
-	        tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
-	        #labelFrame = LabelFrame(self,text="Network Address Translation")
-	        labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
-                test = tk.Label(labelFrame, text="Ths")
-	        test.pack(anchor=W)
-       	    #labelFrame0 = LabelFrame(self, text="Zero")
-	    #labelFrame0.pack(side=RIGHT)
-	    #self.initInterfaceone()
+	    #if self.isRender == 0:
+	    #tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
+	    labelFrame = LabelFrame(self,text="Network Address Translation")
+	    self.labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
+            test = tk.Label(labelFrame, text="Ths")
+	    test.pack(anchor=W)
+	    #self.isRender = 1    #self.initInterfaceone()
         elif selection[0] == "1":
-	    labelFrame.destroy()
-	    tkMessageBox.showinfo("selection:"+selection[0],"One:"+selection[0])
+	    #if self.isRender == 1:
+	    #self.labelFrame.destroy()
+	    #tkMessageBox.showinfo("selection:"+selection[0],"One:"+selection[0])
 	    labelFrame1 = LabelFrame(self,text="One Configuration")
 	    labelFrame1.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
             test1 = tk.Label(labelFrame1, text="One config")
-	    test1.pack(anchor=W)	
+	    test1.pack(anchor=W)
+	    self.isRender = 2
 	elif selection[0] == "2":
-	    tkMessageBox.showinfo("Selection:"+selection[0],"Two:"+selection[0])
+	    #tkMessageBox.showinfo("Selection:"+selection[0],"Two:"+selection[0])
 	    labelFrame2 = LabelFrame(self,text="Two Configuration")
 	    labelFrame2.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
             test2 = tk.Label(labelFrame2, text="Two config")
 	    test2.pack(anchor=W)	
 	elif selection[0] == "3":
-	    #drawRightBox(self)
-	    tkMessageBox.showinfo("Selection:"+selection[0],"Three:"+selection[0])	
+	    #tkMessageBox.showinfo("Selection:"+selection[0],"Three:"+selection[0])	
 	    labelFrame2 = LabelFrame(self,text="Three Configuration")
 	    labelFrame2.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
             test2 = tk.Label(labelFrame2, text="Three config")
@@ -117,7 +116,7 @@ class SampleApp(tk.Tk):
 	    labelFrame3.pack(side=RIGHT)
         #print "Selection:", selection, ": '%s'" %value
         #tkMessageBox.showinfo("Test","Test")
-	self.isRender = True
+	#self.isRender = 10 
 	return value
     def drawRightBox(self):
         tkMessageBox.showinfo("Hi","How")
