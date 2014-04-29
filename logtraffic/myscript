@@ -1,0 +1,6 @@
+crontab -u root -p
+
+#rotate pf log file every 5 minutes
+
+0-59/5 * * * * /bin/sh /etc/pflogrotate
+
