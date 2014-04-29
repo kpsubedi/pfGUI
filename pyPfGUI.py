@@ -11,9 +11,9 @@ class SampleApp(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
 	self.isRender = 0
 	self.labelFrame = tk.LabelFrame(text="Network Address Translation")
-	self.labelFrame1 = tk.LabelFrame(text="Network Address Translation")
-	self.labelFrame2 = tk.LabelFrame(text="Network Address Translation")
-	self.labelFrame3 = tk.LabelFrame(text="Network Address Translation")
+	self.labelFrame1 = tk.LabelFrame(text="Create Table")
+	self.labelFrame2 = tk.LabelFrame(text="Port Forwarding")
+	self.labelFrame3 = tk.LabelFrame(text="Create Custom Rules")
 	self.initUI()
 	self.buttomPanel()
 	self.leftPanel()
@@ -107,10 +107,17 @@ class SampleApp(tk.Tk):
 	    #if self.isRender == 1:
 	    #self.labelFrame.destroy()
 	    #tkMessageBox.showinfo("selection:"+selection[0],"One:"+selection[0])
-	    #self.labelFrame1 = LabelFrame(self,text="One Configuration")
+	    #self.labelFrame1 = LabelFrame(self,text="Create Table based on file")
 	    self.labelFrame1.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
-            test1 = tk.Label(self.labelFrame1, text="One config")
+            test1 = tk.Label(self.labelFrame1, text="Enter Table Name")
+	    tableEntry = tk.Entry(self.labelFrame1)
+	    myFileName = StringVar(value="spammer.txt")
+	    fileEntry = tk.Entry(self.labelFrame1, textvariable=myFileName, state=DISABLED)
+	    browseFile = tk.Button(self.labelFrame1, text="Browse File")
 	    test1.pack(anchor=W)
+	    tableEntry.pack(anchor=W)
+	    fileEntry.pack(anchor=W)
+	    browseFile.pack(anchor=W)
 	    widget.selection_set(first=1)
 	    #self.isRender = 2
 	elif selection[0] == "2":
