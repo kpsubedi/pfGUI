@@ -22,7 +22,7 @@ class SampleApp(tk.Tk):
     def buttomPanel(self):
         group = tk.LabelFrame(text="Firewall Status")
 	group.pack(side=BOTTOM,fill="x",padx=5, pady=5)
-	bp = tk.Label(group,text="The firewall is disabled.",fg="red")
+	bp = tk.Label(group,text="The firewall is enabled.",fg="green")
 	bp.pack(anchor=W)
     def leftPanel(self):
         lb = tk.Listbox(self,width=25)
@@ -90,10 +90,17 @@ class SampleApp(tk.Tk):
 	    #tkMessageBox.showinfo("selection:"+selection[0],"Zero:"+selection[0])
 	    #labelFrame = LabelFrame(self,text="Network Address Translation")
 	    self.labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
-            test = tk.Label(self.labelFrame, text="Enter IP Addresses")
+            test = tk.Label(self.labelFrame, text="Enter Internal Network  Addresses")
+            test1 = tk.Label(self.labelFrame, text="External IP Address")
 	    ipEntry = tk.Entry(self.labelFrame)
-	    ipEntry.pack(anchor=W)
+	    ipEnternalIP = tk.Entry(self.labelFrame)
+	    ipAddButton = tk.Button(self.labelFrame,text="Add")
+	    	
 	    test.pack(anchor=W)
+	    ipEntry.pack(anchor=W)
+	    test1.pack(anchor=W)
+	    ipEnternalIP.pack(anchor=W)
+	    ipAddButton.pack(anchor=W)
 	    widget.selection_set(first=0)	
 	    #self.isRender = 1    #self.initInterfaceone()
         elif selection[0] == "1":
@@ -126,6 +133,8 @@ class SampleApp(tk.Tk):
         #tkMessageBox.showinfo("Test","Test")
 	#self.isRender = 10 
 	return value
+    def addIP(self):
+	tkMessageBox.showinfo("Are you sure?","Add IP")
     def drawRightBox(self):
         tkMessageBox.showinfo("Hi","How")
     def initInterfaceone(self):
