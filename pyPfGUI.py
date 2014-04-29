@@ -91,6 +91,8 @@ class SampleApp(tk.Tk):
 	    #labelFrame = LabelFrame(self,text="Network Address Translation")
 	    self.labelFrame.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
             test = tk.Label(self.labelFrame, text="Enter IP Addresses")
+	    ipEntry = tk.Entry(self.labelFrame)
+	    ipEntry.pack(anchor=W)
 	    test.pack(anchor=W)
 	    widget.selection_set(first=0)	
 	    #self.isRender = 1    #self.initInterfaceone()
