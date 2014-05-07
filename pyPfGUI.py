@@ -114,6 +114,7 @@ class SampleApp(tk.Tk):
 	    myFileName = StringVar(value="spammer.txt")
 	    fileEntry = tk.Entry(self.labelFrame1, textvariable=myFileName, state=DISABLED)
 	    browseFile = tk.Button(self.labelFrame1, text="Browse File")
+	    createRule = tk.Button(self.labelFrame1, text="Load Rule")
 	    test1.pack(anchor=W)
 	    tableEntry.pack(anchor=W)
 	    fileEntry.pack(anchor=W)
