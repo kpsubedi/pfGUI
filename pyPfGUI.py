@@ -136,6 +136,8 @@ class SampleApp(tk.Tk):
 	    #labelFrame2 = LabelFrame(self,text="Three Configuration")
 	    self.labelFrame3.pack(side=RIGHT,fill="both",expand="YES",padx=5, pady=5)
             test2 = tk.Label(self.labelFrame3, text="Three config")
+	    loadRuleButton = tk.Button(self.labelFrame2, text="Apply Ruleset")	
+	    test2.pack(anchor=W)
 	    test2.pack(anchor=W)	
 	    widget.selection_set(first=3)	
 	    #labelFrame3 = LabelFrame(self, text="Three")
